@@ -29,6 +29,12 @@ dependencies {
 
     // Spring Devtools
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+    // Spring Data JPA
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // MySQL
+    runtimeOnly 'mysql:mysql-connector-java'
 }
 
 tasks.named('test') {
