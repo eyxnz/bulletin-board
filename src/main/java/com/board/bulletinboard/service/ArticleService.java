@@ -1,7 +1,6 @@
 package com.board.bulletinboard.service;
 
 import com.board.bulletinboard.dto.ArticleDto;
-import com.board.bulletinboard.dto.ArticleUpdateDto;
 import com.board.bulletinboard.dto.type.SearchType;
 import com.board.bulletinboard.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,9 +30,11 @@ public class ArticleService {
     public void saveArticle(ArticleDto dto) {
     }
 
+    /*
     // 게시글 업데이트
     public void updateArticle(long articleId, ArticleUpdateDto dto) {
     }
+    */
 
     // 게시글 삭제
     public void deleteArticle(long articleId) {
