@@ -44,6 +44,10 @@ dependencies {
 
     // Spring Boot Configuration Processor : 사용자 정의 application property 를 IDE 에서 편리하게 연동하여 사용하기 위해 추가
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
 
 tasks.named('test') {
