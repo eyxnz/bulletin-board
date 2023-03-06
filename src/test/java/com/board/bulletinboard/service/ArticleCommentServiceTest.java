@@ -31,7 +31,6 @@ class ArticleCommentServiceTest {
     @Mock private ArticleRepository articleRepository;
     @Mock private ArticleCommentRepository articleCommentRepository;
 
-    @Disabled("구현 중")
     @DisplayName("게시글 ID로 조회하면, 해당하는 댓글 리스트를 반환한다.")
     @Test
     void givenArticleId_whenSearchingArticleComments_thenReturnsArticleComments() {
@@ -50,7 +49,6 @@ class ArticleCommentServiceTest {
         then(articleCommentRepository).should().findByArticle_Id(articleId);
     }
 
-    @Disabled("구현 중")
     @DisplayName("댓글 정보를 입력하면, 댓글을 저장한다.")
     @Test
     void givenArticleCommentInfo_whenSavingArticleComment_thenSavesArticleComment() {
@@ -67,7 +65,6 @@ class ArticleCommentServiceTest {
         then(articleCommentRepository).should().save(any(ArticleComment.class));
     }
 
-    @Disabled("구현 중")
     @DisplayName("댓글 저장을 시도했는데 맞는 게시글이 없으면, 경고 로그를 찍고 아무것도 안 한다.")
     @Test
     void givenNonexistentArticle_whenSavingArticleComment_thenLogsSituationAndDoesNothing() {
@@ -83,7 +80,6 @@ class ArticleCommentServiceTest {
         then(articleCommentRepository).shouldHaveNoInteractions();
     }
 
-    @Disabled("구현 중")
     @DisplayName("댓글 ID를 입력하면, 댓글을 삭제한다.")
     @Test
     void givenArticleCommentId_whenDeletingArticleComment_thenDeletesArticleComment() {
