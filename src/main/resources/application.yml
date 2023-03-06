@@ -17,5 +17,6 @@ spring:
     properties:
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
+    open-in-view: false
   sql.init.mode: always
   thymeleaf3.decoupled-logic: true
