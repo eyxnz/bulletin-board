@@ -4,7 +4,9 @@ import com.board.bulletinboard.dto.response.ArticleResponse;
 import com.board.bulletinboard.dto.response.ArticleWithCommentsResponse;
 import com.board.bulletinboard.dto.type.SearchType;
 import com.board.bulletinboard.service.ArticleService;
+import com.board.bulletinboard.service.PaginationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -24,6 +26,7 @@ public class ArticleController {
     // 게시판 페이지
 
     private final ArticleService articleService;
+    private final PaginationService paginationService;
 
     @GetMapping
     public String articles(
@@ -32,10 +35,11 @@ public class ArticleController {
             @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable,
             ModelMap map
     ) {
-        map.addAttribute(
-                "articles",
-                articleService.searchArticles(searchType, searchValue, pageable).map(ArticleResponse::from)
-        );
+        Page<ArticleResponse> articles = articleService.searchArticles(searchType, searchValue, pageable).map(ArticleResponse::from);
+        List<Integer> barNumbers = paginationService.getPaginationBarNumbers(pageable.getPageNumber(), articles.getTotalPages());
+
+        map.addAttribute("articles", articles);
+        map.addAttribute("paginationBarNumbers", barNumbers);
 
         return "articles/index";
     }
@@ -47,6 +51,7 @@ public class ArticleController {
 
         map.addAttribute("article", article);
         map.addAttribute("articleComments", article.articleCommentsResponse());
+        map.addAttribute("totalCount", articleService.getArticleCount());
 
         return "articles/detail";
     }
