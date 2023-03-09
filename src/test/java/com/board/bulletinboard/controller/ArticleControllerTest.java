@@ -198,23 +198,23 @@ class ArticleControllerTest {
                 "content",
                 "#java",
                 LocalDateTime.now(),
-                "uno",
+                "eyxnz",
                 LocalDateTime.now(),
-                "uno"
+                "eyxnz"
         );
     }
 
     private UserAccountDto createUserAccountDto() {
-        return UserAccountDto.of(1L,
-                "uno",
+        return UserAccountDto.of(
+                "eyxnz",
                 "pw",
-                "uno@mail.com",
-                "Uno",
+                "eyxnz@mail.com",
+                "eyxnz",
                 "memo",
                 LocalDateTime.now(),
-                "uno",
+                "eyxnz",
                 LocalDateTime.now(),
-                "uno"
+                "eyxnz"
         );
     }
 }

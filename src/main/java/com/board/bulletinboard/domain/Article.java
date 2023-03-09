@@ -36,7 +36,7 @@ public class Article {
 
     @Setter private String hashtag; // 해시태그
 
-    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 (ID)
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "userId") private UserAccount userAccount; // 유저 정보 (ID)
 
     @ToString.Exclude
     @OrderBy("createdAt DESC")
