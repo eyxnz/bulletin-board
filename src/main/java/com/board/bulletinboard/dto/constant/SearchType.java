@@ -1,4 +1,4 @@
-package com.board.bulletinboard.dto.type;
+package com.board.bulletinboard.dto.constant;
 
 import lombok.Getter;
 
