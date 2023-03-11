@@ -31,7 +31,7 @@ public class ArticleComment {
     @Setter @Column(nullable = false, length = 500) private String content; // 본문
 
     @Setter @ManyToOne(optional = false) private Article article; // 게시글 (ID)
-    @Setter @ManyToOne(optional = false) private UserAccount userAccount; // 유저 정보 (ID)
+    @Setter @ManyToOne(optional = false) @JoinColumn(name = "userId") private UserAccount userAccount; // 유저 정보 (ID)
 
     protected ArticleComment() {}
 
@@ -50,7 +50,7 @@ public class ArticleComment {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ArticleComment that)) return false;
-        return id != null && id.equals(that.id);
+        return id != null && id.equals(that.getId());
     }
     @Override
     public int hashCode() {
