@@ -6,6 +6,7 @@
     <!-- 게시글 리스트 -->
     <attr sel="main" th:object="${articles}">
         <!-- 검색바 -->
+        <attr sel="#search-form" th:action="@{/articles}" th:method="get" />
         <attr sel="#search-type" th:remove="all-but-first">
             <attr sel="option[0]"
                   th:each="searchType : ${searchTypes}"
@@ -53,6 +54,8 @@
                 </attr>
             </attr>
         </attr>
+
+        <attr sel="#write-article" th:href="@{/articles/form}" />
 
         <!-- 페이지네이션 -->
         <attr sel="#pagination">
